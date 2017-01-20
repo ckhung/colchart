@@ -5,14 +5,15 @@ use strict;
 my (%opts, $numberRE);
 
 %opts = (
+    d => ',',	# delimiter
     c => ':',	# column values
     r => ':',	# row values
-    t => ',',	# separator
+    t => undef,	# transpose?
 );
 
 $numberRE = '[-+\d\.Ee]*';
 
-getopts('c:r:t:', \%opts);
+getopts('d:c:r:t', \%opts);
 
 my ($c0, $cinc, @clab, $r0, $rinc, @rlab);
 
@@ -46,10 +47,10 @@ $i = 0;
 while (<>) {
     s/#.*//;
     next if /^\s*$/;
-    @row = split($opts{t});
+    @row = split($opts{d});
     for ($j=0; $j<=$#row; ++$j) {
 	my ($r, $c) = index2label($i, $j);
-	print "$r $c $row[$j]\n";
+	print $opts{t} ? "$r $c $row[$j]\n" : "$c $r $row[$j]\n";
     }
     ++$i;
 }
