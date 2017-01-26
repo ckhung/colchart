@@ -46,12 +46,14 @@ my ($i, $j, @row);
 $i = 0;
 while (<>) {
     s/#.*//;
+    chomp;
     next if /^\s*$/;
     @row = split($opts{d});
     for ($j=0; $j<=$#row; ++$j) {
 	my ($r, $c) = index2label($i, $j);
-	print $opts{t} ? "$r $c $row[$j]\n" : "$c $r $row[$j]\n";
+	print $opts{t} ? "$c $r $row[$j]\n" : "$r $c $row[$j]\n";
     }
+    print "\n";
     ++$i;
 }
 

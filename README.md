@@ -10,7 +10,7 @@ posed by the above link.
 
 Usage:
 ```bash
-    ./mat2list.pl -r '1:' -c '20:20' freq0.txt | ./pt2sq.pl -x 20 > freq.txt
+    ./mat2list.pl -r '1:' -c '20:20' freq0.txt | ./pt2sq.pl -y 20 > freq.txt
 ```
 Then inside gnuplot:
 ```gnuplot
@@ -25,9 +25,12 @@ generate an svg file "colchart.svg".
 
 This script reads a csv file or a space-delimited tabulated
 matrix of numbers and converts it into lines of the format:
-```column_label row_label matrix_entry```.
+```row_label column_label matrix_entry```.
+An additional blank line is printed
+after the last entry of each row.
 When fed as a data file to the "splot" command of gnuplot,
-it is interpreted as x-, y-, and z-coordinates.
+this kind of file is interpreted as x-, y-, and z-coordinates,
+and the result is a grid plot.
 The following options are available:
 
 ```-c m:n``` column labels (x-coordinates)
@@ -51,5 +54,7 @@ the labels themselves.
 
 ## 3. pt2sq.pl ##
 
+Suppose you have a data file consisting of lines of the format:
+```x_coord y_coord z_coord```.
 This script converts ...
 
