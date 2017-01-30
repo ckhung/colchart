@@ -1,9 +1,11 @@
 #!/usr/bin/gnuplot
 set pm3d
 set style data lines
-set term svg
-set output "colchart.svg"
-splot "freq.txt"
+set term png
+set output "rugged.png"
+splot "rugged.txt"
+set output "colchart.png"
+splot "colchart.txt"
 set term x11
 set output
-splot "freq.txt"
+replot
