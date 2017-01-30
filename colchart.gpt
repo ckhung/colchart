@@ -1,6 +1,7 @@
 #!/usr/bin/gnuplot
 set pm3d
 set style data lines
+set palette model HSV functions 0.75-gray, 1, 1
 set term png
 set output "rugged.png"
 splot "rugged.txt"
