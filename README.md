@@ -6,6 +6,8 @@ requires preprocessing the data.
 This program is the answer to the homework problem
 posed by the above link.
 
+中文： [從試算表產生柱柱圖（三次元長條圖）](https://newtoypia.blogspot.tw/2017/01/column-chart.html)。
+
 ## 1. For the Impatient ##
 
 Usage:
